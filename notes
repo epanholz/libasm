@@ -1,0 +1,13 @@
+nasm -f macho64 test.asm
+
+nasm -fmacho64 hello.asm && ld hello.o 
+
+ld -macosx_version_min 10.7.0 -o test test.o
+
+nasm -fmacho64 hello.s && ld hello.o && ld -macosx_version_min 10.7.0 hello.o
+
+
+nasm -fmacho64 test.s                  
+gcc -Wall -Werror -Wextra main.c test.o
+
+nasm -fmacho64 ft_strcmp.s && gcc -Wall -Werror -Wextra main.c ft_strcmp.o
