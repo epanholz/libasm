@@ -11,3 +11,7 @@ nasm -fmacho64 test.s
 gcc -Wall -Werror -Wextra main.c test.o
 
 nasm -fmacho64 ft_strcmp.s && gcc -Wall -Werror -Wextra main.c ft_strcmp.o
+
+nasm -fmacho64 ft_write.s && gcc -Wall -Werror -Wextra main.c ft_write.o
+
+nasm -fmacho64 ft_read.s && gcc -Wall -Werror -Wextra main.c ft_read.o
