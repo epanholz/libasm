@@ -6,7 +6,7 @@
 /*   By: pani_zino <pani_zino@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/03 18:11:01 by pani_zino     #+#    #+#                 */
-/*   Updated: 2020/10/14 15:53:46 by epanholz      ########   odam.nl         */
+/*   Updated: 2020/10/14 19:03:24 by epanholz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,26 @@
 // 	return(0);
 // }
 
-int		main(void)
-{
-	//nasm -fmacho64 ft_write.s && gcc -Wall -Werror -Wextra -fsanitize=address main.c ft_write.o
+// int		main(void)
+// {
+// 	//nasm -fmacho64 ft_write.s && gcc -Wall -Werror -Wextra -fsanitize=address main.c ft_write.o
 
-	int x, y;
-	x = open("test1.txt", O_WRONLY | O_CREAT, 0644);
-	y = open("test2.txt", O_WRONLY | O_CREAT, 0644);
+// 	int x, y;
+// 	x = open("test1.txt", O_WRONLY | O_CREAT, 0644);
+// 	y = open("test2.txt", O_WRONLY | O_CREAT, 0644);
 
-	printf("real write : %zd errno: %d\n", write(-12, "test\n", 6), errno);
-	printf("my write : %zd errno: %d\n", ft_write(-12, "test\n", 6), errno);
-	printf("\n");
-	printf("real write: %zd \n", write(1, "test ", 6));
-	printf("my write: %zd \n", ft_write(1, "test ", 6));
-	printf("\n");
-	printf("real write: %zd\n", write(x, "test\n", 6));
-	printf("my write: %zd\n", ft_write(y, "test\n", 6));
-	close(x);
-	close(y);
-	return(0);
-}
+// 	printf("real write : %zd errno: %d\n", write(-12, "test\n", 6), errno);
+// 	printf("my write : %zd errno: %d\n", ft_write(-12, "test\n", 6), errno);
+// 	printf("\n");
+// 	printf("real write: %zd \n", write(1, "test ", 6));
+// 	printf("my write: %zd \n", ft_write(1, "test ", 6));
+// 	printf("\n");
+// 	printf("real write: %zd\n", write(x, "test\n", 6));
+// 	printf("my write: %zd\n", ft_write(y, "test\n", 6));
+// 	close(x);
+// 	close(y);
+// 	return(0);
+// }
 
 // int		main(void)
 // {
@@ -84,3 +84,15 @@ int		main(void)
 // 	printf("\n");
 // 	return(0);
 // }
+
+int			main(void)
+{
+	//nasm -fmacho64 ft_strcpy.s && gcc -Wall -Werror -Wextra -fsanitize=address main.c ft_strcpy.o
+
+	const char	s1[6] = "Hello";
+	char		s2[6];
+
+	printf("Real: %s\n", strcpy(s2, s1));
+	printf("Mine: %s\n", ft_strcpy(s2, s1));
+	return (0);
+}
