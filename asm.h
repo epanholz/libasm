@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   asm.h                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: pani_zino <pani_zino@student.codam.nl>       +#+                     */
+/*   By: epanholz <epanholz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 14:32:03 by pani_zino     #+#    #+#                 */
-/*   Updated: 2020/10/14 19:03:29 by epanholz      ########   odam.nl         */
+/*   Created: 2020/10/20 15:01:26 by epanholz      #+#    #+#                 */
+/*   Updated: 2020/10/20 15:01:31 by epanholz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-size_t		ft_strlen(const char *s);
 int			ft_strcmp(const char *s1, const char *s2);
-char		*ft_strcpy(char *dst, const char *src);
+size_t		ft_strlen(const char *s);
 ssize_t		ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t		ft_read(int fildes, void *buf, size_t nbyte);
+char		*ft_strcpy(char *dst, const char *src);
+char		*strdup(const char *s1);
 
 #endif
