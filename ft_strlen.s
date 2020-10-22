@@ -8,7 +8,7 @@ _ft_strlen:
 
 _ft_strlen_loop:
 	cmp		[rdi], byte 0
-	jz		_ft_strlen_exit
+	jz		_ft_strlen_exit			;jump if zero/equal
 
 	inc		rcx
 	inc		rdi

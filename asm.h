@@ -6,7 +6,7 @@
 /*   By: epanholz <epanholz@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/20 15:01:26 by epanholz      #+#    #+#                 */
-/*   Updated: 2020/10/20 15:01:31 by epanholz      ########   odam.nl         */
+/*   Updated: 2020/10/22 15:09:14 by epanholz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ size_t		ft_strlen(const char *s);
 ssize_t		ft_write(int fildes, const void *buf, size_t nbyte);
 ssize_t		ft_read(int fildes, void *buf, size_t nbyte);
 char		*ft_strcpy(char *dst, const char *src);
-char		*strdup(const char *s1);
+char		*ft_strdup(const char *s1);
 
 #endif

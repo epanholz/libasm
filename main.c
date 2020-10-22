@@ -6,7 +6,7 @@
 /*   By: pani_zino <pani_zino@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/03 18:11:01 by pani_zino     #+#    #+#                 */
-/*   Updated: 2020/10/14 19:03:24 by epanholz      ########   odam.nl         */
+/*   Updated: 2020/10/22 15:10:21 by epanholz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,26 @@
 // 	return(0);
 // }
 
+// int			main(void)
+// {
+// 	//nasm -fmacho64 ft_strcpy.s && gcc -Wall -Werror -Wextra -fsanitize=address main.c ft_strcpy.o
+
+// 	const char	s1[6] = "Hello";
+// 	char		s2[6];
+
+// 	printf("Real: %s\n", strcpy(s2, s1));
+// 	printf("Mine: %s\n", ft_strcpy(s2, s1));
+// 	return (0);
+// }
+
 int			main(void)
 {
-	//nasm -fmacho64 ft_strcpy.s && gcc -Wall -Werror -Wextra -fsanitize=address main.c ft_strcpy.o
+	//nasm -fmacho64 ft_strdup.s && gcc -Wall -Werror -Wextra -fsanitize=address main.c ft_strdup.o
+	//nasm -fmacho64 ft_strdup.s && gcc -Wall -Werror -Wextra main.c ft_strdup.o
 
-	const char	s1[6] = "Hello";
-	char		s2[6];
+	const char	*s1 = "Hello";
 
-	printf("Real: %s\n", strcpy(s2, s1));
-	printf("Mine: %s\n", ft_strcpy(s2, s1));
+	printf("Real: %s\n", strdup(s1));
+	printf("Mine: %s\n", ft_strdup(s1));
 	return (0);
 }

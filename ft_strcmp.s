@@ -8,16 +8,16 @@ _ft_strcmp:
 _ft_strcmp_loop:
 	mov		al, [rdi + rcx]
 	cmp		al, byte [rsi + rcx]
-	jne		_ft_strcmp_diff
+	jne		_ft_strcmp_diff				;jump if not equal
 
 	cmp		[rdi + rcx], byte 0
-	jz		_ft_strcmp_diff
+	jz		_ft_strcmp_diff				;jump if zero/equal
 
 	inc 	rcx
 	jmp		_ft_strcmp_loop
 
 _ft_strcmp_diff:
 	sub		al, byte [rsi + rcx]
-	movsx	rax, al ;extends segment into 32 bit 
+	movsx	rax, al						;extends segment into 32 bit 
 	pop		rcx
 	ret
