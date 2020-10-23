@@ -17,7 +17,11 @@ _ft_strcmp_loop:
 	jmp		_ft_strcmp_loop
 
 _ft_strcmp_diff:
-	sub		al, byte [rsi + rcx]
-	movsx	rax, al						;extends segment into 32 bit 
+	movzx	r9, al
+	movzx   r10, byte [rsi + rcx]
+	sub		r9, r10
+	;sub		r9, byte [rsi + rcx]
+	;movzx	r9, byte al					;extends segment into 32 bit 
+	mov		rax, r9
 	pop		rcx
 	ret
