@@ -1,6 +1,7 @@
 
 global	_ft_strdup
 extern	_malloc
+extern _ft_strcpy
 
 _ft_strdup:
 	push		rcx
@@ -13,15 +14,24 @@ _count:
 	jmp			_count
 
 _allocate:
+	push		rbp
+	push		rdi
+	mov			rbp, rsp
+	and			rsp, -16
+	inc			rcx
 	mov			rdi, rcx
 	call		_malloc					;malloc returns rax
-	;cmp			rax, 0
-	;jne			_dup_loop			;jump if not equal
-	;jmp			_exit
+	mov			rsp, rbp
+	pop			rdi
+	pop			rbp
 
+_dup:
+	push		rdi
+	mov			rsi, rdi
+	mov			rdi, rax
+	call		_ft_strcpy
+	pop			rdi
 
 _exit:
-	;movsb
-	;mov		rdi, rax
 	pop			rcx
 	ret

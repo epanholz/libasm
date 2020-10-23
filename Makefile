@@ -6,14 +6,14 @@
 #    By: zilisabethpangasch <zilisabethpangasch@      +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/09/21 11:50:12 by zilisabethp   #+#    #+#                  #
-#    Updated: 2020/10/21 18:32:19 by pani_zino     ########   odam.nl          #
+#    Updated: 2020/10/23 16:16:45 by epanholz      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libasm.a
 
 ASM_FUNCTIONS := ft_read.s ft_strcmp.s ft_strcpy.s \
- ft_strlen.s ft_write.s
+ ft_strlen.s ft_write.s ft_strdup.s
 
 ASM_OBJ := $(ASM_FUNCTIONS:.s=.o)
 
@@ -37,7 +37,7 @@ clean:
 
 fclean:
 	@printf "\e[1;34mRemoving lib and .o files\n\e[0m"
-	@rm $(NAME)
+	@rm $(NAME) $(ASM_OBJ)
 
 re: fclean all
 
