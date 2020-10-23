@@ -15,16 +15,16 @@ _count:
 
 _allocate:
 	push		rbp
-	push		rdi
+	push		rdi						;stack alignment
 	mov			rbp, rsp
 	and			rsp, -16
 	inc			rcx
 	mov			rdi, rcx
-	call		_malloc					;malloc returns rax
+	call		_malloc					;malloc call returns rax
 	mov			rsp, rbp
 	pop			rdi
 	pop			rbp
-	cmp			rax, 0
+	cmp			rax, 0					;protecting malloc
 	jz			_exit
 
 _dup:

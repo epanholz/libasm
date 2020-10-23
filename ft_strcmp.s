@@ -17,11 +17,12 @@ _ft_strcmp_loop:
 	jmp		_ft_strcmp_loop
 
 _ft_strcmp_diff:
-	movzx	r9, al
+	movzx	r9, al					
 	movzx   r10, byte [rsi + rcx]
 	sub		r9, r10
-	;sub		r9, byte [rsi + rcx]
-	;movzx	r9, byte al					;extends segment into 32 bit 
 	mov		rax, r9
 	pop		rcx
 	ret
+
+; Copies the contents of the source operand (register or memory location)
+; to the destination operand (register) and zero extends the value.
