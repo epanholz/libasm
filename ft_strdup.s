@@ -21,11 +21,11 @@ _allocate:
 	inc			rcx
 	mov			rdi, rcx
 	call		_malloc					;malloc returns rax
-	cmp			rax, 0
-	jz			_exit
 	mov			rsp, rbp
 	pop			rdi
 	pop			rbp
+	cmp			rax, 0
+	jz			_exit
 
 _dup:
 	push		rdi
