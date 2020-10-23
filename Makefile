@@ -6,38 +6,44 @@
 #    By: zilisabethpangasch <zilisabethpangasch@      +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/09/21 11:50:12 by zilisabethp   #+#    #+#                  #
-#    Updated: 2020/10/23 16:16:45 by epanholz      ########   odam.nl          #
+#    Updated: 2020/10/23 17:00:21 by epanholz      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+RED = \033[1;38;5;168m
+BLU = \033[3;38;5;146m
+RES = \033[0m
+
 NAME := libasm.a
 
-ASM_FUNCTIONS := ft_read.s ft_strcmp.s ft_strcpy.s \
+SRC := ft_read.s ft_strcmp.s ft_strcpy.s \
  ft_strlen.s ft_write.s ft_strdup.s
 
-ASM_OBJ := $(ASM_FUNCTIONS:.s=.o)
+FLAGS := -Wall -Wextra -Werror -fsanitize=address
+
+OBJ := $(SRC:.s=.o)
 
 all: $(NAME)
 
-$(NAME): $(ASM_OBJ)
-	@printf "\e[1;34\Compiling library\n\e[0m"
-	@ar rcs $(NAME) $(ASM_OBJ)
+$(NAME): $(OBJ)
+	@echo "$(RED)\nCompiling library\n$(RES)"
+	@ar rcs $(NAME) $(OBJ)
 
 %.o: %.s
-	@printf "\e[1;34mGenerating .o files\n\e[0m"
+	@echo "$(BLU)Generating .o files$(RES)"
 	@nasm -f macho64 -o $@ $<
 
 test: all
-	@printf "\e[1;34mRunning test\n\e[0m"
-	@gcc -o test $(NAME) main.c && ./test && rm ./test && make fclean
+	@echo "$(RED)\nRunning test\n$(RES)"
+	@gcc $(FLAGS) -o test $(NAME) main.c && ./test && rm ./test && make fclean
 
 clean:
-	@printf "\e[1;34mRemoving .o files\n\e[0m"
-	@rm $(ASM_OBJ)
+	@echo "$(RED)\nRemoving .o files\n$(RES)"
+	@$(RM) $(OBJ)
 
 fclean:
-	@printf "\e[1;34mRemoving lib and .o files\n\e[0m"
-	@rm $(NAME) $(ASM_OBJ)
+	@echo "$(RED)\nRemoving lib and .o files\n$(RES)"
+	@$(RM) $(NAME) $(OBJ)
 
 re: fclean all
 

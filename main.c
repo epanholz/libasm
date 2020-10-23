@@ -6,7 +6,7 @@
 /*   By: pani_zino <pani_zino@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/03 18:11:01 by pani_zino     #+#    #+#                 */
-/*   Updated: 2020/10/23 16:16:17 by epanholz      ########   odam.nl         */
+/*   Updated: 2020/10/23 17:02:42 by epanholz      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@
 
 int			main(void)
 {
-	char *empty = "";
+	const char *empty = "";
 	char *test = "This is is one very looooong test string";
 	char *diff = "This is another string";
 
-	printf("\033[1;38;5;168m----------- STRLEN -----------\n\n\033[0m");
+	printf("\033[3;38;5;146m----------- STRLEN -----------\n\n\033[0m");
 	printf("EMPTY STRING\n");
 	printf("real: %zu\nmine: %zu\n\n", strlen(empty), ft_strlen(empty));
 	printf("NORMAL STRING\n");
 	printf("real: %zu\nmine: %zu\n\n", strlen(test), ft_strlen(test));
 	printf("\n");
-	printf("\033[1;38;5;168m----------- STRCMP -----------\n\n\033[0m");
+	printf("\033[3;38;5;146m----------- STRCMP -----------\n\n\033[0m");
 	printf("2 EMPTY STRINGS\n");
 	printf("real: %d\nmine: %d\n\n", strcmp(empty, empty), ft_strcmp(empty, empty));
 	printf("FIRST STRING EMPTY\n");
@@ -45,7 +45,7 @@ int			main(void)
 	printf("STRINGS WITH DIFF\n");
 	printf("real: %d\nmine: %d\n\n", strcmp(diff, test), ft_strcmp(diff,test));
 	printf("\n");
-	printf("\033[1;38;5;168m----------- WRITE -----------\n\n\033[0m");
+	printf("\033[3;38;5;146m----------- WRITE -----------\n\n\033[0m");
 	int x, y;
 	x = open("test1.txt", O_WRONLY | O_CREAT, 0644);
 	y = open("test2.txt", O_WRONLY | O_CREAT, 0644);
@@ -60,7 +60,7 @@ int			main(void)
 	close(x);
 	close(y);
 	printf("\n\n");
-	printf("\033[1;38;5;168m----------- READ -----------\n\n\033[0m");
+	printf("\033[3;38;5;146m----------- READ -----------\n\n\033[0m");
 	int fd;
 	char	buff[6];
 	fd = open("main.c", O_RDONLY);
@@ -70,13 +70,16 @@ int			main(void)
 	printf("real: %zd\n", read(fd, buff, 3));
 	printf("mine: %zd\n", ft_read(fd, buff, 3));
 	printf("\n\n");
-	printf("\033[1;38;5;168m----------- STRCPY -----------\n\n\033[0m");
+	printf("\033[3;38;5;146m----------- STRCPY -----------\n\n\033[0m");
 	const char	s1[6] = "Hello";
 	char		s2[6];
 	printf("real: %s\n", strcpy(s2, s1));
 	printf("mine: %s\n", ft_strcpy(s2, s1));
+	printf("\n");
+	printf("real: %s\n", strcpy(s2, empty));
+	printf("mine: %s\n", ft_strcpy(s2, empty));
 	printf("\n\n");
-	printf("\033[1;38;5;168m----------- STRDUP -----------\n\n\033[0m");
+	printf("\033[3;38;5;146m----------- STRDUP -----------\n\n\033[0m");
 	const char	*s3 = "Hello";
 	const char	*s4 = "";
 	const char	*s5 = "12 12";
