@@ -6,7 +6,7 @@
 /*   By: pani_zino <pani_zino@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/03 18:11:01 by pani_zino     #+#    #+#                 */
-/*   Updated: 2020/10/23 17:02:42 by epanholz      ########   odam.nl         */
+/*   Updated: 2020/10/26 12:25:45 by pani_zino     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,15 @@ int			main(void)
 	int x, y;
 	x = open("test1.txt", O_WRONLY | O_CREAT, 0644);
 	y = open("test2.txt", O_WRONLY | O_CREAT, 0644);
+	printf("INVALID FD\n");
 	printf("real: %zd errno: %d\n", write(-12, "test\n", 6), errno);
 	printf("mine: %zd errno: %d\n", ft_write(-12, "test\n", 6), errno);
 	printf("\n");
+	printf("STANDART OUTPUT\n");
 	printf("real: %zd \n", write(1, "test ", 6));
 	printf("mine: %zd \n", ft_write(1, "test ", 6));
 	printf("\n");
+	printf("WORKING FD\n");
 	printf("real: %zd\n", write(x, "test\n", 6));
 	printf("mine: %zd\n", ft_write(y, "test\n", 6));
 	close(x);
@@ -64,28 +67,33 @@ int			main(void)
 	int fd;
 	char	buff[6];
 	fd = open("main.c", O_RDONLY);
+	printf("INVALID FD\n");
 	printf("real: %zd errno: %d\n", read(5, "test\n", 6), errno);
 	printf("mine: %zd errno: %d\n", ft_read(5, "test\n", 6), errno);
 	printf("\n");
+	printf("WORKING FD\n");
 	printf("real: %zd\n", read(fd, buff, 3));
 	printf("mine: %zd\n", ft_read(fd, buff, 3));
 	printf("\n\n");
 	printf("\033[3;38;5;146m----------- STRCPY -----------\n\n\033[0m");
 	const char	s1[6] = "Hello";
 	char		s2[6];
+	printf("NORMAL STRING\n");
 	printf("real: %s\n", strcpy(s2, s1));
 	printf("mine: %s\n", ft_strcpy(s2, s1));
 	printf("\n");
+	printf("EMPTY STRING\n");
 	printf("real: %s\n", strcpy(s2, empty));
 	printf("mine: %s\n", ft_strcpy(s2, empty));
 	printf("\n\n");
 	printf("\033[3;38;5;146m----------- STRDUP -----------\n\n\033[0m");
 	const char	*s3 = "Hello";
-	const char	*s4 = "";
 	const char	*s5 = "12 12";
 	const char	*s6 = "pizza)!?";
+	printf("EMPTY STRING\n");
+	printf("real: %s\nmine: %s\n\n", strdup(empty), ft_strdup(empty));
+	printf("NORMAL STRINGS\n");
 	printf("real: %s\nmine: %s\n\n", strdup(s3), ft_strdup(s3));
-	printf("real: %s\nmine: %s\n\n", strdup(s4), ft_strdup(s4));
 	printf("real: %s\nmine: %s\n\n", strdup(s5), ft_strdup(s5));
 	printf("real: %s\nmine: %s\n\n", strdup(s6), ft_strdup(s6));
 	return (0);
