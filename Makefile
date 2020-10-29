@@ -6,7 +6,7 @@
 #    By: zilisabethpangasch <zilisabethpangasch@      +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/09/21 11:50:12 by zilisabethp   #+#    #+#                  #
-#    Updated: 2020/10/23 17:00:21 by epanholz      ########   odam.nl          #
+#    Updated: 2020/10/29 15:27:33 by pani_zino     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RES = \033[0m
 NAME := libasm.a
 
 SRC := ft_read.s ft_strcmp.s ft_strcpy.s \
- ft_strlen.s ft_write.s ft_strdup.s
+ ft_strlen.s ft_write.s ft_strdup.s ft_list_size.s
 
 FLAGS := -Wall -Wextra -Werror -fsanitize=address
 
